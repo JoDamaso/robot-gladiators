@@ -10,6 +10,7 @@ var enemyHealth = 50;
 var enemyAttack = 12;
 
 var fight = function(enemyName) {
+    // window.alert("Welcome to Robot Gladiators!");
         while (playerHealth > 0 && enemyHealth > 0) {
           // ask player if they'd like to fight or run
         var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
@@ -31,9 +32,7 @@ var fight = function(enemyName) {
     
           // remove enemy's health by subtracting the amount set in the playerAttack variable
         enemyHealth = enemyHealth - playerAttack;
-        console.log(
-            playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
-        );
+        console.log(playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.');
     
           // check enemy's health
         if (enemyHealth <= 0) {
@@ -50,9 +49,7 @@ var fight = function(enemyName) {
     
           // remove players's health by subtracting the amount set in the enemyAttack variable
         playerHealth = playerHealth - enemyAttack;
-        console.log(
-            enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
-        );
+        console.log(enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.');
     
           // check player's health
         if (playerHealth <= 0) {
@@ -66,10 +63,23 @@ var fight = function(enemyName) {
 };
 
 
+
 for(var i = 0; i < enemyNames.length; i++) {
     var pickedEnemyName = enemyNames[i];
     enemyHealth = 50;
-    fight(pickedEnemyName);
+    // fight(pickedEnemyName);
+    if (playerHealth > 0) {
+        window.alert("Welcome to Robot Galdiators! Round " + ( i + 1 ));
+        var pickedEnemyName = enemyNames[i];
+        enemyHealth = 50;
+        // use debugger to pause script from running and check what's going on at that moment in the code
+        // debugger;
+        fight(pickedEnemyName);
+    }
+    else {
+        window.alert("You have lost your robot in battle! Game Over!");
+        break;
+    }
 }
 
 
