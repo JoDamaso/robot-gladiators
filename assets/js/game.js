@@ -9,7 +9,7 @@ var enemyNames = ["Roberto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function(enemyName) {
+var fight = function(enemyNames) {
     ///fight function statements
     window.alert("Welcome to Robot Galdiators!");
     // Alert players that they are starting the round
@@ -60,7 +60,7 @@ var fight = function(enemyName) {
     }
 };
 
-fight();
+// fight();
 
 for(var i = 0; i < enemyNames.length; i++) {
     fight(enemyNames[i]);
