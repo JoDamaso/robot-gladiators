@@ -9,6 +9,12 @@ var enemyNames = ["Roberto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+    return value;
+};
+
 var fight = function(enemyName) {
     while (playerHealth > 0 && enemyHealth > 0) {
         // ask player if they'd like to fight or run
@@ -72,7 +78,7 @@ var startGame = function() {
     playerHealth = 100;
     playerAttack = 10;
     playerMoney = 10;
-
+    
     for(var i = 0; i < enemyNames.length; i++) {
         var pickedEnemyName = enemyNames[i];
         enemyHealth = Math.floor(Math.random() * 21) + 40;
@@ -84,7 +90,8 @@ var startGame = function() {
         if (playerHealth > 0) {
             window.alert("Welcome to Robot Galdiators! Round " + ( i + 1 ));
             var pickedEnemyName = enemyNames[i];
-            enemyHealth = randomNumber (40, 60);
+            // enemyHealth = randomNumber (40, 60);
+            enemyHealth = randomNumber ();
             // debugger;
             fight(pickedEnemyName);
             if (playerHealth > 0 && i < enemyNames.length - 1) {
@@ -156,7 +163,11 @@ var shop = function() {
                                     break;
     }
 };
+// var randomNumber = function() {
+//     var value = Math.floor(Math.random() * 21) + 40;
 
+//     return value;
+//   };
 startGame();
 // console.log(enemyNames);
 // console.log(enemyNames[0]);
