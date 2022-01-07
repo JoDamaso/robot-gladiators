@@ -4,11 +4,23 @@ var randomNumber = function(min, max) {
     return value;
 };
 
+var getPlayerName = function() {
+    var name = "";
+
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+
+    console.log("Your robot's name is " + name);
+    return name;
+};
+
 var playerInfo = {
     name: window.prompt("What is your robot's name?"),
     health: 100,
     attack: 10,
     money: 10,
+    name: getPlayerName(),
     reset: function() {
         this.health = 100;
         this.money = 10;
@@ -122,9 +134,9 @@ var startGame = function() {
         // fight(pickedEnemyObj);
         if (playerInfo.health > 0) {
             window.alert("Welcome to Robot Galdiators! Round " + ( i + 1 ));
+            // debugger;
             var pickedEnemyObj = enemyInfo[i];
             pickedEnemyObj.health = randomNumber(40, 60);
-            // debugger;
             fight(pickedEnemyObj);
             if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
                 var storeconfirm = window.confirm("The fight is over, visit the store before the next round?");
